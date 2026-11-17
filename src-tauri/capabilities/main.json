@@ -1,0 +1,16 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "main",
+  "description": "The search box: read and edit shortcuts, hide itself, open the data folder.",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "core:window:allow-start-dragging",
+    "allow-app-info",
+    "allow-list-items",
+    "allow-save-item",
+    "allow-delete-item",
+    "allow-hide-window",
+    "allow-open-data-folder"
+  ]
+}

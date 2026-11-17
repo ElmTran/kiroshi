@@ -1,0 +1,427 @@
+/* Kiroshi: a scanner overlay. Deep sea-ink ground, cyan for what the scanner
+   has locked onto, amber for things you type rather than press. */
+:root {
+  --ink: #0f2029;
+  --panel: #152b36;
+  --lift: #1c3947;
+  --line: #264a5a;
+  --text: #dcebeb;
+  --muted: #7f9ca6;
+  --scan: #5fe3d2;
+  --amber: #f2b84b;
+  --danger: #ff8a7a;
+
+  --ui: 'Segoe UI Variable Text', 'Segoe UI', 'Microsoft YaHei UI', 'Microsoft YaHei', sans-serif;
+  --mono: 'Cascadia Mono', 'Cascadia Code', Consolas, 'Microsoft YaHei UI', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--ink);
+  color: var(--text);
+  font: 14px/1.45 var(--ui);
+  overflow: hidden;
+  user-select: none;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--scan);
+  outline-offset: 1px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.shell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--line);
+}
+
+/* Search */
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 18px;
+  height: 58px;
+  border-bottom: 1px solid var(--line);
+}
+
+.search input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  background: none;
+  border: 0;
+  outline: 0;
+  font-size: 19px;
+  caret-color: var(--scan);
+}
+
+.search input::placeholder {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.search .count {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Body */
+
+.body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+
+.rail {
+  width: 164px;
+  flex: none;
+  padding: 8px;
+  overflow-y: auto;
+  background: var(--panel);
+  border-right: 1px solid var(--line);
+}
+
+.rail button {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  padding: 6px 10px;
+  background: none;
+  border: 0;
+  border-radius: 4px;
+  text-align: left;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.rail button:hover {
+  color: var(--text);
+}
+
+.rail button.active {
+  background: var(--lift);
+  color: var(--scan);
+}
+
+.rail .n {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.7;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Results */
+
+.results {
+  flex: 1;
+  margin: 0;
+  padding: 8px 10px;
+  list-style: none;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+
+.results li {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr) 120px;
+  align-items: baseline;
+  gap: 14px;
+  padding: 7px 12px;
+  cursor: default;
+}
+
+/* The selected row is what the scanner has locked onto: two corner brackets. */
+.results li[aria-selected='true'] {
+  background: var(--lift);
+}
+
+.results li[aria-selected='true']::before,
+.results li[aria-selected='true']::after {
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--scan);
+}
+
+.results li[aria-selected='true']::before {
+  top: 0;
+  left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.results li[aria-selected='true']::after {
+  right: 0;
+  bottom: 0;
+  border-left: 0;
+  border-top: 0;
+}
+
+.keys {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.keys i {
+  font-style: normal;
+  color: var(--muted);
+}
+
+kbd {
+  font: 13px/1.3 var(--mono);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Keys you press look like key caps. */
+.key .keys kbd,
+.hints kbd {
+  padding: 2px 7px;
+  background: #21414f;
+  border: 1px solid #346172;
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  color: #eef8f7;
+}
+
+/* Commands you type look like terminal text. */
+.command .keys kbd {
+  padding: 2px 6px;
+  background: rgb(242 184 75 / 0.1);
+  border-radius: 3px;
+  color: var(--amber);
+}
+
+.desc {
+  overflow-wrap: anywhere;
+}
+
+.desc code {
+  margin: 0 2px;
+  font: 13px var(--mono);
+  color: var(--amber);
+}
+
+.where {
+  color: var(--muted);
+  font-size: 12px;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.where b {
+  margin-right: 6px;
+  font-weight: 600;
+  color: var(--text);
+  opacity: 0.75;
+}
+
+/* Empty and error states */
+
+.empty {
+  margin: auto;
+  padding: 24px;
+  max-width: 460px;
+  text-align: center;
+}
+
+.empty p {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.empty .detail {
+  color: var(--muted);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+  user-select: text;
+}
+
+.empty button {
+  margin-top: 12px;
+}
+
+/* Editor */
+
+.editor {
+  padding: 18px 22px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.editor h1 {
+  margin: 0 0 2px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.field-row {
+  display: flex;
+  gap: 16px;
+}
+
+.field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.field > span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.field small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.field input:not([type='radio']) {
+  height: 34px;
+  padding: 0 10px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  user-select: text;
+}
+
+.field input.mono {
+  font-family: var(--mono);
+}
+
+.field input::placeholder {
+  color: #567682;
+}
+
+.kind {
+  flex: none;
+}
+
+.kind > div {
+  display: flex;
+  gap: 16px;
+}
+
+.kind label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 34px;
+  white-space: nowrap;
+}
+
+.kind input {
+  accent-color: var(--scan);
+}
+
+.form-error {
+  margin: 0;
+  color: var(--danger);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.actions button,
+.empty button {
+  height: 32px;
+  padding: 0 14px;
+  background: var(--lift);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.actions button.primary {
+  background: var(--scan);
+  border-color: var(--scan);
+  color: #06231f;
+  font-weight: 600;
+}
+
+.actions button.danger {
+  color: var(--danger);
+}
+
+/* Footer */
+
+.hints {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 34px;
+  padding: 0 14px;
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.hints kbd {
+  margin: 0 3px 0 8px;
+  padding: 0 5px;
+  font-size: 11px;
+  border-bottom-width: 1px;
+}
+
+.hints span > kbd:first-child {
+  margin-left: 0;
+}
+
+.hints .notice {
+  color: var(--scan);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hints .warn {
+  color: var(--amber);
+}

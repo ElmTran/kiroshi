@@ -1,0 +1,1121 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "seed-001",
+      "app": "终端",
+      "kind": "command",
+      "keys": "`vim ` + `Ctrl-T`",
+      "desc": "模糊选文件（带预览），回车插入路径，再回车打开",
+      "tags": []
+    },
+    {
+      "id": "seed-002",
+      "app": "终端",
+      "kind": "key",
+      "keys": "`Alt-C`",
+      "desc": "模糊选目录并 cd 进去",
+      "tags": []
+    },
+    {
+      "id": "seed-003",
+      "app": "终端",
+      "kind": "key",
+      "keys": "`Ctrl-R`",
+      "desc": "模糊搜索历史命令",
+      "tags": []
+    },
+    {
+      "id": "seed-004",
+      "app": "终端",
+      "kind": "command",
+      "keys": "`vim **<Tab>`",
+      "desc": "当前目录下模糊补全文件路径（`cd **<Tab>` 补全目录）",
+      "tags": []
+    },
+    {
+      "id": "seed-005",
+      "app": "终端",
+      "kind": "command",
+      "keys": "`vim $(fzf)`",
+      "desc": "选一个文件用 vim 打开",
+      "tags": []
+    },
+    {
+      "id": "seed-006",
+      "app": "终端",
+      "kind": "key",
+      "keys": "`y`",
+      "desc": "启动 yazi（退出后终端自动 cd 到最后所在目录）",
+      "tags": []
+    },
+    {
+      "id": "seed-007",
+      "app": "终端",
+      "kind": "command",
+      "keys": "`fd 名字`",
+      "desc": "按文件名查找",
+      "tags": []
+    },
+    {
+      "id": "seed-008",
+      "app": "终端",
+      "kind": "command",
+      "keys": "`rg 关键词`",
+      "desc": "按内容搜索（`rg 关键词 -t py` 只搜 Python 文件）",
+      "tags": []
+    },
+    {
+      "id": "seed-009",
+      "app": "终端",
+      "kind": "command",
+      "keys": "`bat 文件`",
+      "desc": "带语法高亮查看文件",
+      "tags": []
+    },
+    {
+      "id": "seed-010",
+      "app": "fzf",
+      "kind": "key",
+      "keys": "`Ctrl-J` / `Ctrl-K`（或 `Ctrl-N` / `Ctrl-P`）",
+      "desc": "上下移动",
+      "tags": [
+        "界面里"
+      ]
+    },
+    {
+      "id": "seed-011",
+      "app": "fzf",
+      "kind": "key",
+      "keys": "`Tab` / `Shift-Tab`",
+      "desc": "多选 / 取消（`Ctrl-T` 支持多选）",
+      "tags": [
+        "界面里"
+      ]
+    },
+    {
+      "id": "seed-012",
+      "app": "fzf",
+      "kind": "key",
+      "keys": "`Enter`",
+      "desc": "确认",
+      "tags": [
+        "界面里"
+      ]
+    },
+    {
+      "id": "seed-013",
+      "app": "fzf",
+      "kind": "key",
+      "keys": "`Esc` / `Ctrl-C`",
+      "desc": "取消",
+      "tags": [
+        "界面里"
+      ]
+    },
+    {
+      "id": "seed-014",
+      "app": "fzf",
+      "kind": "key",
+      "keys": "`abc`",
+      "desc": "模糊匹配",
+      "tags": [
+        "搜索语法"
+      ]
+    },
+    {
+      "id": "seed-015",
+      "app": "fzf",
+      "kind": "key",
+      "keys": "`'abc`",
+      "desc": "精确包含 abc",
+      "tags": [
+        "搜索语法"
+      ]
+    },
+    {
+      "id": "seed-016",
+      "app": "fzf",
+      "kind": "key",
+      "keys": "`^src`",
+      "desc": "以 src 开头",
+      "tags": [
+        "搜索语法"
+      ]
+    },
+    {
+      "id": "seed-017",
+      "app": "fzf",
+      "kind": "key",
+      "keys": "`.py$`",
+      "desc": "以 .py 结尾",
+      "tags": [
+        "搜索语法"
+      ]
+    },
+    {
+      "id": "seed-018",
+      "app": "fzf",
+      "kind": "key",
+      "keys": "`!test`",
+      "desc": "排除含 test 的",
+      "tags": [
+        "搜索语法"
+      ]
+    },
+    {
+      "id": "seed-019",
+      "app": "fzf",
+      "kind": "key",
+      "keys": "`a b`",
+      "desc": "同时匹配 a 和 b（空格 = 与）",
+      "tags": [
+        "搜索语法"
+      ]
+    },
+    {
+      "id": "seed-020",
+      "app": "fzf",
+      "kind": "key",
+      "keys": "`py$ | md$`",
+      "desc": "或",
+      "tags": [
+        "搜索语法"
+      ]
+    },
+    {
+      "id": "seed-021",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`h` / `l`",
+      "desc": "返回上级目录 / 进入目录或打开文件",
+      "tags": [
+        "移动 & 打开"
+      ]
+    },
+    {
+      "id": "seed-022",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`j` / `k`",
+      "desc": "下移 / 上移",
+      "tags": [
+        "移动 & 打开"
+      ]
+    },
+    {
+      "id": "seed-023",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`gg` / `G`",
+      "desc": "跳到顶部 / 底部",
+      "tags": [
+        "移动 & 打开"
+      ]
+    },
+    {
+      "id": "seed-024",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`Enter` / `o`",
+      "desc": "用 vim 打开",
+      "tags": [
+        "移动 & 打开"
+      ]
+    },
+    {
+      "id": "seed-025",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`O`",
+      "desc": "选择打开方式",
+      "tags": [
+        "移动 & 打开"
+      ]
+    },
+    {
+      "id": "seed-026",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`H` / `L`",
+      "desc": "后退 / 前进（目录历史）",
+      "tags": [
+        "移动 & 打开"
+      ]
+    },
+    {
+      "id": "seed-027",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`J` / `K`",
+      "desc": "滚动右侧预览",
+      "tags": [
+        "移动 & 打开"
+      ]
+    },
+    {
+      "id": "seed-028",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`gh`",
+      "desc": "跳到家目录",
+      "tags": [
+        "移动 & 打开"
+      ]
+    },
+    {
+      "id": "seed-029",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`g Space`",
+      "desc": "输入路径跳转",
+      "tags": [
+        "移动 & 打开"
+      ]
+    },
+    {
+      "id": "seed-030",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`s`",
+      "desc": "按文件名递归搜索（fd）",
+      "tags": [
+        "搜索"
+      ]
+    },
+    {
+      "id": "seed-031",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`S`",
+      "desc": "按内容搜索（rg）",
+      "tags": [
+        "搜索"
+      ]
+    },
+    {
+      "id": "seed-032",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`z`",
+      "desc": "fzf 模糊跳转到文件 / 目录",
+      "tags": [
+        "搜索"
+      ]
+    },
+    {
+      "id": "seed-033",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`/` 、`n` / `N`",
+      "desc": "在当前目录查找，下一个 / 上一个",
+      "tags": [
+        "搜索"
+      ]
+    },
+    {
+      "id": "seed-034",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`f`",
+      "desc": "过滤当前目录列表",
+      "tags": [
+        "搜索"
+      ]
+    },
+    {
+      "id": "seed-035",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`.`",
+      "desc": "显示 / 隐藏隐藏文件",
+      "tags": [
+        "搜索"
+      ]
+    },
+    {
+      "id": "seed-036",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`,`",
+      "desc": "排序菜单",
+      "tags": [
+        "搜索"
+      ]
+    },
+    {
+      "id": "seed-037",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`Space`",
+      "desc": "选中 / 取消选中",
+      "tags": [
+        "文件操作"
+      ]
+    },
+    {
+      "id": "seed-038",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`v`",
+      "desc": "可视模式批量选择",
+      "tags": [
+        "文件操作"
+      ]
+    },
+    {
+      "id": "seed-039",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`Ctrl-A`",
+      "desc": "全选",
+      "tags": [
+        "文件操作"
+      ]
+    },
+    {
+      "id": "seed-040",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`y` / `x` / `p`",
+      "desc": "复制 / 剪切 / 粘贴",
+      "tags": [
+        "文件操作"
+      ]
+    },
+    {
+      "id": "seed-041",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`Y` / `X`",
+      "desc": "取消复制 / 剪切",
+      "tags": [
+        "文件操作"
+      ]
+    },
+    {
+      "id": "seed-042",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`a`",
+      "desc": "新建文件（名字以 `/` 结尾则新建目录）",
+      "tags": [
+        "文件操作"
+      ]
+    },
+    {
+      "id": "seed-043",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`r`",
+      "desc": "重命名",
+      "tags": [
+        "文件操作"
+      ]
+    },
+    {
+      "id": "seed-044",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`d`",
+      "desc": "删除到回收站",
+      "tags": [
+        "文件操作"
+      ]
+    },
+    {
+      "id": "seed-045",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`D`",
+      "desc": "永久删除（慎用）",
+      "tags": [
+        "文件操作"
+      ]
+    },
+    {
+      "id": "seed-046",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`cc`",
+      "desc": "复制文件路径",
+      "tags": [
+        "文件操作"
+      ]
+    },
+    {
+      "id": "seed-047",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`;`",
+      "desc": "在当前目录执行 shell 命令",
+      "tags": [
+        "文件操作"
+      ]
+    },
+    {
+      "id": "seed-048",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`t`",
+      "desc": "新建标签页",
+      "tags": [
+        "标签页 & 退出"
+      ]
+    },
+    {
+      "id": "seed-049",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`1`~`9`",
+      "desc": "切换到第 N 个标签页",
+      "tags": [
+        "标签页 & 退出"
+      ]
+    },
+    {
+      "id": "seed-050",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`[` / `]`",
+      "desc": "上一个 / 下一个标签页",
+      "tags": [
+        "标签页 & 退出"
+      ]
+    },
+    {
+      "id": "seed-051",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`q`",
+      "desc": "退出（用 `y` 启动时会 cd 到当前目录）",
+      "tags": [
+        "标签页 & 退出"
+      ]
+    },
+    {
+      "id": "seed-052",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`Q`",
+      "desc": "退出且不切换目录",
+      "tags": [
+        "标签页 & 退出"
+      ]
+    },
+    {
+      "id": "seed-053",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`Esc`",
+      "desc": "关闭搜索框 / 弹窗 / 取消选择",
+      "tags": [
+        "标签页 & 退出"
+      ]
+    },
+    {
+      "id": "seed-054",
+      "app": "yazi",
+      "kind": "key",
+      "keys": "`~` 或 `F1`",
+      "desc": "查看全部快捷键",
+      "tags": [
+        "标签页 & 退出"
+      ]
+    },
+    {
+      "id": "seed-055",
+      "app": "Vim",
+      "kind": "command",
+      "keys": "`:find 名字<Tab>`",
+      "desc": "在项目里递归找文件（需要 `set path+=**`）",
+      "tags": [
+        "找文件"
+      ]
+    },
+    {
+      "id": "seed-056",
+      "app": "Vim",
+      "kind": "command",
+      "keys": "`:e **/名字<Tab>`",
+      "desc": "同上",
+      "tags": [
+        "找文件"
+      ]
+    },
+    {
+      "id": "seed-057",
+      "app": "Vim",
+      "kind": "command",
+      "keys": "`:e 路径`",
+      "desc": "打开文件",
+      "tags": [
+        "找文件"
+      ]
+    },
+    {
+      "id": "seed-058",
+      "app": "Vim",
+      "kind": "command",
+      "keys": "`:e .`",
+      "desc": "用 netrw 浏览当前目录",
+      "tags": [
+        "找文件"
+      ]
+    },
+    {
+      "id": "seed-059",
+      "app": "Vim",
+      "kind": "command",
+      "keys": "`:Ex`",
+      "desc": "当前窗口打开文件浏览器",
+      "tags": [
+        "文件树（netrw）"
+      ]
+    },
+    {
+      "id": "seed-060",
+      "app": "Vim",
+      "kind": "command",
+      "keys": "`:Lex`",
+      "desc": "左侧边栏打开（再执行一次关闭）",
+      "tags": [
+        "文件树（netrw）"
+      ]
+    },
+    {
+      "id": "seed-061",
+      "app": "Vim",
+      "kind": "command",
+      "keys": "`:Vex` / `:Sex`",
+      "desc": "竖直 / 水平分屏打开",
+      "tags": [
+        "文件树（netrw）"
+      ]
+    },
+    {
+      "id": "seed-062",
+      "app": "Vim",
+      "kind": "key",
+      "keys": "`Enter`",
+      "desc": "打开文件 / 进入目录",
+      "tags": [
+        "文件树（netrw）"
+      ]
+    },
+    {
+      "id": "seed-063",
+      "app": "Vim",
+      "kind": "key",
+      "keys": "`-`",
+      "desc": "返回上级目录",
+      "tags": [
+        "文件树（netrw）"
+      ]
+    },
+    {
+      "id": "seed-064",
+      "app": "Vim",
+      "kind": "key",
+      "keys": "`%`",
+      "desc": "新建文件",
+      "tags": [
+        "文件树（netrw）"
+      ]
+    },
+    {
+      "id": "seed-065",
+      "app": "Vim",
+      "kind": "key",
+      "keys": "`d`",
+      "desc": "新建目录",
+      "tags": [
+        "文件树（netrw）"
+      ]
+    },
+    {
+      "id": "seed-066",
+      "app": "Vim",
+      "kind": "key",
+      "keys": "`R`",
+      "desc": "重命名",
+      "tags": [
+        "文件树（netrw）"
+      ]
+    },
+    {
+      "id": "seed-067",
+      "app": "Vim",
+      "kind": "key",
+      "keys": "`D`",
+      "desc": "删除",
+      "tags": [
+        "文件树（netrw）"
+      ]
+    },
+    {
+      "id": "seed-068",
+      "app": "Vim",
+      "kind": "key",
+      "keys": "`i`",
+      "desc": "切换显示样式（列表 / 树形）",
+      "tags": [
+        "文件树（netrw）"
+      ]
+    },
+    {
+      "id": "seed-069",
+      "app": "Vim",
+      "kind": "command",
+      "keys": "`:grep 关键词`",
+      "desc": "全项目搜索（需要 `set grepprg=rg\\ --vimgrep`）",
+      "tags": [
+        "搜内容"
+      ]
+    },
+    {
+      "id": "seed-070",
+      "app": "Vim",
+      "kind": "command",
+      "keys": "`:copen` / `:cclose`",
+      "desc": "打开 / 关闭结果列表（在列表里回车跳转）",
+      "tags": [
+        "搜内容"
+      ]
+    },
+    {
+      "id": "seed-071",
+      "app": "Vim",
+      "kind": "command",
+      "keys": "`:cn` / `:cp`",
+      "desc": "下一个 / 上一个结果",
+      "tags": [
+        "搜内容"
+      ]
+    },
+    {
+      "id": "seed-072",
+      "app": "Vim",
+      "kind": "command",
+      "keys": "`*` / `#`",
+      "desc": "在当前文件里搜光标下的单词（向下 / 向上）",
+      "tags": [
+        "搜内容"
+      ]
+    },
+    {
+      "id": "seed-073",
+      "app": "Vim",
+      "kind": "key",
+      "keys": "`gf`",
+      "desc": "打开光标下的文件路径",
+      "tags": [
+        "跳转"
+      ]
+    },
+    {
+      "id": "seed-074",
+      "app": "Vim",
+      "kind": "key",
+      "keys": "`gd`",
+      "desc": "跳到当前文件里的局部定义",
+      "tags": [
+        "跳转"
+      ]
+    },
+    {
+      "id": "seed-075",
+      "app": "Vim",
+      "kind": "key",
+      "keys": "`Ctrl-O` / `Ctrl-I`",
+      "desc": "跳回上一个位置 / 再跳回来（可跨文件）",
+      "tags": [
+        "跳转"
+      ]
+    },
+    {
+      "id": "seed-076",
+      "app": "Vim",
+      "kind": "key",
+      "keys": "`Ctrl-^`",
+      "desc": "在当前文件和上一个文件之间切换",
+      "tags": [
+        "跳转"
+      ]
+    },
+    {
+      "id": "seed-077",
+      "app": "Vim",
+      "kind": "key",
+      "keys": "`mA` / `'A`",
+      "desc": "设置全局书签 A / 跳到书签 A（大写字母书签可跨文件）",
+      "tags": [
+        "跳转"
+      ]
+    },
+    {
+      "id": "seed-078",
+      "app": "Vim",
+      "kind": "command",
+      "keys": "`:ls`",
+      "desc": "列出已打开的缓冲区",
+      "tags": [
+        "跳转"
+      ]
+    },
+    {
+      "id": "seed-079",
+      "app": "Vim",
+      "kind": "command",
+      "keys": "`:b 名字<Tab>`",
+      "desc": "切换到某个缓冲区",
+      "tags": [
+        "跳转"
+      ]
+    },
+    {
+      "id": "seed-080",
+      "app": "Vim",
+      "kind": "command",
+      "keys": "`:bn` / `:bp`",
+      "desc": "下一个 / 上一个缓冲区",
+      "tags": [
+        "跳转"
+      ]
+    },
+    {
+      "id": "seed-081",
+      "app": "Vim",
+      "kind": "command",
+      "keys": "`:sp 文件` / `:vs 文件`",
+      "desc": "水平 / 竖直分屏打开",
+      "tags": [
+        "分屏"
+      ]
+    },
+    {
+      "id": "seed-082",
+      "app": "Vim",
+      "kind": "key",
+      "keys": "`Ctrl-W h/j/k/l`",
+      "desc": "在分屏之间移动",
+      "tags": [
+        "分屏"
+      ]
+    },
+    {
+      "id": "seed-083",
+      "app": "Vim",
+      "kind": "key",
+      "keys": "`Ctrl-W q`",
+      "desc": "关闭当前分屏",
+      "tags": [
+        "分屏"
+      ]
+    },
+    {
+      "id": "seed-084",
+      "app": "devstack",
+      "kind": "command",
+      "keys": "`devstack up`（或不带参数）",
+      "desc": "后台启动全部，立即返回，关终端不影响",
+      "tags": []
+    },
+    {
+      "id": "seed-085",
+      "app": "devstack",
+      "kind": "command",
+      "keys": "`devstack status`",
+      "desc": "每个进程一行：状态、健康、重启次数",
+      "tags": []
+    },
+    {
+      "id": "seed-086",
+      "app": "devstack",
+      "kind": "command",
+      "keys": "`devstack restart mom`",
+      "desc": "只重启一个进程（换了二进制 / 改了配置后用）",
+      "tags": []
+    },
+    {
+      "id": "seed-087",
+      "app": "devstack",
+      "kind": "command",
+      "keys": "`devstack down`",
+      "desc": "全部停止",
+      "tags": []
+    },
+    {
+      "id": "seed-088",
+      "app": "devstack",
+      "kind": "command",
+      "keys": "`devstack attach`",
+      "desc": "TUI 连到正在跑的服务，退出 TUI 不停服务",
+      "tags": []
+    },
+    {
+      "id": "seed-089",
+      "app": "devstack",
+      "kind": "command",
+      "keys": "`devstack fg`",
+      "desc": "前台运行，`Ctrl-C` 全部停止（排查启动问题用）",
+      "tags": []
+    },
+    {
+      "id": "seed-090",
+      "app": "devstack",
+      "kind": "command",
+      "keys": "`devstack logs`",
+      "desc": "用 lnav 打开全部日志，按时间合并",
+      "tags": []
+    },
+    {
+      "id": "seed-091",
+      "app": "devstack",
+      "kind": "command",
+      "keys": "`lnav -R ~/dev-infra/logs/`",
+      "desc": "连轮转出去的旧日志一起看",
+      "tags": []
+    },
+    {
+      "id": "seed-092",
+      "app": "lnav",
+      "kind": "key",
+      "keys": "`j` / `k`",
+      "desc": "下移 / 上移一行",
+      "tags": [
+        "移动 & 搜索"
+      ]
+    },
+    {
+      "id": "seed-093",
+      "app": "lnav",
+      "kind": "key",
+      "keys": "`Space` / `b`",
+      "desc": "下翻 / 上翻一页",
+      "tags": [
+        "移动 & 搜索"
+      ]
+    },
+    {
+      "id": "seed-094",
+      "app": "lnav",
+      "kind": "key",
+      "keys": "`Ctrl-D` / `Ctrl-U`",
+      "desc": "下翻 / 上翻半页",
+      "tags": [
+        "移动 & 搜索"
+      ]
+    },
+    {
+      "id": "seed-095",
+      "app": "lnav",
+      "kind": "key",
+      "keys": "`g` / `G`",
+      "desc": "跳到开头 / 结尾",
+      "tags": [
+        "移动 & 搜索"
+      ]
+    },
+    {
+      "id": "seed-096",
+      "app": "lnav",
+      "kind": "key",
+      "keys": "`/正则` 、`n` / `N`",
+      "desc": "搜索，下一个 / 上一个",
+      "tags": [
+        "移动 & 搜索"
+      ]
+    },
+    {
+      "id": "seed-097",
+      "app": "lnav",
+      "kind": "key",
+      "keys": "`e` / `E`",
+      "desc": "下一个 / 上一个 error",
+      "tags": [
+        "移动 & 搜索"
+      ]
+    },
+    {
+      "id": "seed-098",
+      "app": "lnav",
+      "kind": "key",
+      "keys": "`w` / `W`",
+      "desc": "下一个 / 上一个 warning",
+      "tags": [
+        "移动 & 搜索"
+      ]
+    },
+    {
+      "id": "seed-099",
+      "app": "lnav",
+      "kind": "key",
+      "keys": "`f` / `F`",
+      "desc": "切到下一个 / 上一个文件",
+      "tags": [
+        "移动 & 搜索"
+      ]
+    },
+    {
+      "id": "seed-100",
+      "app": "lnav",
+      "kind": "key",
+      "keys": "`i`",
+      "desc": "直方图：看流量和报错集中在哪个时间段",
+      "tags": [
+        "移动 & 搜索"
+      ]
+    },
+    {
+      "id": "seed-101",
+      "app": "lnav",
+      "kind": "key",
+      "keys": "`=`",
+      "desc": "暂停 / 继续加载新日志（刷太快时用）",
+      "tags": [
+        "移动 & 搜索"
+      ]
+    },
+    {
+      "id": "seed-102",
+      "app": "lnav",
+      "kind": "key",
+      "keys": "`Ctrl-W`",
+      "desc": "切换自动换行",
+      "tags": [
+        "移动 & 搜索"
+      ]
+    },
+    {
+      "id": "seed-103",
+      "app": "lnav",
+      "kind": "key",
+      "keys": "`?`",
+      "desc": "帮助",
+      "tags": [
+        "移动 & 搜索"
+      ]
+    },
+    {
+      "id": "seed-104",
+      "app": "lnav",
+      "kind": "key",
+      "keys": "`q`",
+      "desc": "返回上一个视图 / 退出",
+      "tags": [
+        "移动 & 搜索"
+      ]
+    },
+    {
+      "id": "seed-105",
+      "app": "lnav",
+      "kind": "command",
+      "keys": "`:filter-in trace=cdd2077e`",
+      "desc": "只看包含它的行（一次请求的整条链路）",
+      "tags": [
+        "过滤"
+      ]
+    },
+    {
+      "id": "seed-106",
+      "app": "lnav",
+      "kind": "command",
+      "keys": "`:filter-out GET /api/status`",
+      "desc": "隐藏匹配的行（屏蔽健康检查噪音）",
+      "tags": [
+        "过滤"
+      ]
+    },
+    {
+      "id": "seed-107",
+      "app": "lnav",
+      "kind": "key",
+      "keys": "`Ctrl-F`",
+      "desc": "临时关掉 / 打开所有过滤（过滤条件还在）",
+      "tags": [
+        "过滤"
+      ]
+    },
+    {
+      "id": "seed-108",
+      "app": "lnav",
+      "kind": "command",
+      "keys": "`:delete-filter 条件`",
+      "desc": "删掉一条过滤（`:` 后按 `Tab` 可补全已有条件）",
+      "tags": [
+        "过滤"
+      ]
+    },
+    {
+      "id": "seed-109",
+      "app": "lnav",
+      "kind": "command",
+      "keys": "`:disable-filter 条件` / `:enable-filter 条件`",
+      "desc": "停用 / 重新启用一条过滤",
+      "tags": [
+        "过滤"
+      ]
+    },
+    {
+      "id": "seed-110",
+      "app": "lnav",
+      "kind": "key",
+      "keys": "`Tab`",
+      "desc": "打开过滤面板，查看和管理当前所有过滤",
+      "tags": [
+        "过滤"
+      ]
+    },
+    {
+      "id": "seed-111",
+      "app": "lnav",
+      "kind": "key",
+      "keys": "`m`",
+      "desc": "标记 / 取消标记当前行",
+      "tags": [
+        "标记 & SQL"
+      ]
+    },
+    {
+      "id": "seed-112",
+      "app": "lnav",
+      "kind": "key",
+      "keys": "`u` / `U`",
+      "desc": "下一个 / 上一个标记",
+      "tags": [
+        "标记 & SQL"
+      ]
+    },
+    {
+      "id": "seed-113",
+      "app": "lnav",
+      "kind": "key",
+      "keys": "`c`",
+      "desc": "复制所有标记的行",
+      "tags": [
+        "标记 & SQL"
+      ]
+    },
+    {
+      "id": "seed-114",
+      "app": "lnav",
+      "kind": "key",
+      "keys": "`;`",
+      "desc": "进入 SQL 查询（见下）",
+      "tags": [
+        "标记 & SQL"
+      ]
+    },
+    {
+      "id": "seed-115",
+      "app": "lnav",
+      "kind": "key",
+      "keys": "`v`",
+      "desc": "在 SQL 结果和日志之间切换",
+      "tags": [
+        "标记 & SQL"
+      ]
+    }
+  ]
+}
