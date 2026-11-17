@@ -25,7 +25,7 @@ async function mem(): Promise<Item[]> {
 export const api = {
   async info(): Promise<AppInfo> {
     if (inTauri) return invoke('app_info');
-    return { version: 'dev', hotkey: 'Alt+Space', dataFile: '(浏览器预览，改动不会保存)' };
+    return { version: 'dev', hotkey: 'Alt+H', dataFile: '(浏览器预览，改动不会保存)' };
   },
 
   async list(): Promise<Item[]> {

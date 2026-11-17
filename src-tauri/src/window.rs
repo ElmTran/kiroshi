@@ -9,7 +9,7 @@ use tauri::tray::{MouseButton, MouseButtonState, TrayIconBuilder, TrayIconEvent}
 use tauri::{App, AppHandle, Emitter, Manager};
 use tauri_plugin_global_shortcut::GlobalShortcutExt;
 
-const DEFAULT_HOTKEY: &str = "Alt+Space";
+const DEFAULT_HOTKEY: &str = "Alt+H";
 const FALLBACK_HOTKEY: &str = "Ctrl+Alt+K";
 
 pub fn show(app: &AppHandle) {
