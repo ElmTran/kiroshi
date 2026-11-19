@@ -35,6 +35,13 @@ pub fn run() {
                 ])
                 .build(),
         )
+        // Start with Windows (toggled from the tray menu): a Run registry entry
+        // that launches straight into the tray.
+        .plugin(
+            tauri_plugin_autostart::Builder::new()
+                .arg("--hidden")
+                .build(),
+        )
         .plugin(
             tauri_plugin_global_shortcut::Builder::new()
                 .with_handler(|app, _shortcut, event| {

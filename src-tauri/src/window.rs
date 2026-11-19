@@ -4,9 +4,10 @@ use std::fs;
 use std::path::Path;
 
 use serde::Deserialize;
-use tauri::menu::{Menu, MenuItem};
+use tauri::menu::{CheckMenuItem, Menu, MenuItem, PredefinedMenuItem};
 use tauri::tray::{MouseButton, MouseButtonState, TrayIconBuilder, TrayIconEvent};
 use tauri::{App, AppHandle, Emitter, Manager};
+use tauri_plugin_autostart::ManagerExt;
 use tauri_plugin_global_shortcut::GlobalShortcutExt;
 
 const DEFAULT_HOTKEY: &str = "Alt+H";
@@ -74,20 +75,40 @@ pub fn register_hotkey(app: &AppHandle, data_dir: &Path) -> Option<String> {
 pub fn build_tray(app: &App) -> tauri::Result<()> {
     let show_item = MenuItem::with_id(app, "show", "显示 Kiroshi", true, None::<&str>)?;
     let folder_item = MenuItem::with_id(app, "folder", "打开数据文件夹", true, None::<&str>)?;
+    let autostart_on = app.autolaunch().is_enabled().unwrap_or(false);
+    let autostart_item = CheckMenuItem::with_id(
+        app,
+        "autostart",
+        "开机启动",
+        true,
+        autostart_on,
+        None::<&str>,
+    )?;
     let quit_item = MenuItem::with_id(app, "quit", "退出", true, None::<&str>)?;
-    let menu = Menu::with_items(app, &[&show_item, &folder_item, &quit_item])?;
+    let menu = Menu::with_items(
+        app,
+        &[
+            &show_item,
+            &folder_item,
+            &PredefinedMenuItem::separator(app)?,
+            &autostart_item,
+            &PredefinedMenuItem::separator(app)?,
+            &quit_item,
+        ],
+    )?;
 
     let mut tray = TrayIconBuilder::new()
         .tooltip("Kiroshi")
         .menu(&menu)
         .show_menu_on_left_click(false)
-        .on_menu_event(|app, event| match event.id.as_ref() {
+        .on_menu_event(move |app, event| match event.id.as_ref() {
             "show" => show(app),
             "folder" => {
                 if let Err(e) = open_folder(app.state::<crate::AppState>().store.path()) {
                     log::warn!("{e}");
                 }
             }
+            "autostart" => toggle_autostart(app, &autostart_item),
             "quit" => app.exit(0),
             _ => {}
         })
@@ -106,6 +127,23 @@ pub fn build_tray(app: &App) -> tauri::Result<()> {
     }
     tray.build(app)?;
     Ok(())
+}
+
+/// Flips "start with Windows". The menu toggles its own check mark on click,
+/// so it is reset afterwards to what the registry actually says.
+fn toggle_autostart(app: &AppHandle, item: &CheckMenuItem<tauri::Wry>) {
+    let autolaunch = app.autolaunch();
+    let enabled = autolaunch.is_enabled().unwrap_or(false);
+    let result = if enabled {
+        autolaunch.disable()
+    } else {
+        autolaunch.enable()
+    };
+    match result {
+        Ok(()) => log::info!("start with Windows: {}", !enabled),
+        Err(e) => log::warn!("could not change start with Windows: {e}"),
+    }
+    let _ = item.set_checked(autolaunch.is_enabled().unwrap_or(enabled));
 }
 
 /// Opens Explorer with the data file selected.

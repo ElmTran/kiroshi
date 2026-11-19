@@ -19,7 +19,7 @@
 
 搜索区分按键大小写的优先级：搜 `D` 时 `D` 排在 `d` 前面，反之亦然。
 
-退出在托盘图标的右键菜单里。`kiroshi.exe --hidden` 启动时只进托盘，适合开机自启。
+退出在托盘图标的右键菜单里。同一菜单里勾选“开机启动”即可随 Windows 启动（只进托盘，不弹窗口）；它写的是 `HKCU\Software\Microsoft\Windows\CurrentVersion\Run`，启动参数为 `--hidden`，也可以在任务管理器的“启动应用”里关掉。
 
 ## 数据
 
