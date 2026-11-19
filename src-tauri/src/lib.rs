@@ -61,19 +61,21 @@ pub fn run() {
             window::build_tray(app)?;
             log::info!("Kiroshi {} started", env!("CARGO_PKG_VERSION"));
             // `--hidden` is for starting with Windows: tray only.
-            if !std::env::args().any(|a| a == "--hidden") {
+            if std::env::args().any(|a| a == "--hidden") {
+                window::hide(app.handle());
+            } else {
                 window::show(app.handle());
             }
             Ok(())
         })
         .on_window_event(move |window, event| match event {
             WindowEvent::Focused(false) if hide_on_blur => {
-                let _ = window.hide();
+                window::hide(window.app_handle());
             }
             // Alt+F4 hides; quitting is in the tray menu.
             WindowEvent::CloseRequested { api, .. } => {
                 api.prevent_close();
-                let _ = window.hide();
+                window::hide(window.app_handle());
             }
             _ => {}
         })

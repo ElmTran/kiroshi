@@ -6,7 +6,7 @@ use std::path::Path;
 use serde::Deserialize;
 use tauri::menu::{CheckMenuItem, Menu, MenuItem, PredefinedMenuItem};
 use tauri::tray::{MouseButton, MouseButtonState, TrayIconBuilder, TrayIconEvent};
-use tauri::{App, AppHandle, Emitter, Manager};
+use tauri::{App, AppHandle, Emitter, Manager, WebviewWindow};
 use tauri_plugin_autostart::ManagerExt;
 use tauri_plugin_global_shortcut::GlobalShortcutExt;
 
@@ -15,6 +15,8 @@ const FALLBACK_HOTKEY: &str = "Ctrl+Alt+K";
 
 pub fn show(app: &AppHandle) {
     if let Some(w) = app.get_webview_window("main") {
+        // Wake first: the "shown" event below needs a running page.
+        set_awake(&w, true);
         let _ = w.center();
         let _ = w.show();
         let _ = w.set_focus();
@@ -26,8 +28,62 @@ pub fn show(app: &AppHandle) {
 pub fn hide(app: &AppHandle) {
     if let Some(w) = app.get_webview_window("main") {
         let _ = w.hide();
+        set_awake(&w, false);
     }
 }
+
+/// While the window is hidden, the page is suspended (scripts and timers
+/// paused) and WebView2 is asked to keep its memory low; showing undoes both.
+#[cfg(windows)]
+pub fn set_awake(window: &WebviewWindow, awake: bool) {
+    use webview2_com::Microsoft::Web::WebView2::Win32::{
+        COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_LOW, COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_NORMAL,
+        ICoreWebView2_3, ICoreWebView2_19,
+    };
+    use webview2_com::TrySuspendCompletedHandler;
+    use windows_core::Interface;
+
+    let result = window.with_webview(move |webview| unsafe {
+        let controller = webview.controller();
+        let Ok(core) = controller.CoreWebView2() else {
+            return;
+        };
+        let level = if awake {
+            COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_NORMAL
+        } else {
+            COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_LOW
+        };
+        // Visibility goes first: a visible WebView cannot be suspended, and
+        // becoming visible resumes it.
+        let _ = controller.SetIsVisible(awake);
+        if let Ok(core19) = core.cast::<ICoreWebView2_19>() {
+            let _ = core19.SetMemoryUsageTargetLevel(level);
+        }
+        let Ok(core3) = core.cast::<ICoreWebView2_3>() else {
+            return;
+        };
+        if awake {
+            let _ = core3.Resume();
+        } else {
+            let handler = TrySuspendCompletedHandler::create(Box::new(|result, suspended| {
+                match result {
+                    Ok(()) => log::debug!("webview suspended: {suspended}"),
+                    Err(e) => log::warn!("could not suspend the webview: {e}"),
+                }
+                Ok(())
+            }));
+            if let Err(e) = core3.TrySuspend(&handler) {
+                log::warn!("could not suspend the webview: {e}");
+            }
+        }
+    });
+    if let Err(e) = result {
+        log::warn!("could not reach the webview: {e}");
+    }
+}
+
+#[cfg(not(windows))]
+pub fn set_awake(_window: &WebviewWindow, _awake: bool) {}
 
 pub fn toggle(app: &AppHandle) {
     let active = app
