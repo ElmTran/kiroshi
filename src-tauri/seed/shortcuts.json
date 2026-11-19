@@ -1116,6 +1116,586 @@
       "tags": [
         "标记 & SQL"
       ]
+    },
+    {
+      "id": "seed-116",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git init`",
+      "desc": "把当前目录变成 Git 仓库",
+      "tags": [
+        "开始 & 配置"
+      ]
+    },
+    {
+      "id": "seed-117",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git clone <url>`",
+      "desc": "克隆远程仓库到本地（加目录名可指定文件夹）",
+      "tags": [
+        "开始 & 配置"
+      ]
+    },
+    {
+      "id": "seed-118",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git config --global user.name \"名字\"`",
+      "desc": "设置提交用的名字（`user.email` 同理）",
+      "tags": [
+        "开始 & 配置"
+      ]
+    },
+    {
+      "id": "seed-119",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git config --list --show-origin`",
+      "desc": "列出所有配置及其来自哪个文件",
+      "tags": [
+        "开始 & 配置"
+      ]
+    },
+    {
+      "id": "seed-120",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git status`",
+      "desc": "看哪些文件改了、哪些已暂存、当前在哪个分支",
+      "tags": [
+        "日常提交"
+      ]
+    },
+    {
+      "id": "seed-121",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git status -sb`",
+      "desc": "简短版状态，一行一个文件",
+      "tags": [
+        "日常提交"
+      ]
+    },
+    {
+      "id": "seed-122",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git add <文件>`",
+      "desc": "把改动加入暂存区（下次提交的内容）",
+      "tags": [
+        "日常提交"
+      ]
+    },
+    {
+      "id": "seed-123",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git add -A`",
+      "desc": "暂存全部改动，包括新建和删除的文件",
+      "tags": [
+        "日常提交"
+      ]
+    },
+    {
+      "id": "seed-124",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git add -p`",
+      "desc": "逐块挑选要暂存的改动（`y` 要 / `n` 不要 / `s` 拆小）",
+      "tags": [
+        "日常提交"
+      ]
+    },
+    {
+      "id": "seed-125",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git commit -m \"说明\"`",
+      "desc": "提交暂存区的内容",
+      "tags": [
+        "日常提交"
+      ]
+    },
+    {
+      "id": "seed-126",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git commit -am \"说明\"`",
+      "desc": "暂存所有已跟踪文件的改动并提交（新文件不包括）",
+      "tags": [
+        "日常提交"
+      ]
+    },
+    {
+      "id": "seed-127",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git commit --amend`",
+      "desc": "修改上一次提交（补文件或改说明）；已推送的别改",
+      "tags": [
+        "日常提交"
+      ]
+    },
+    {
+      "id": "seed-128",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git commit --amend --no-edit`",
+      "desc": "把暂存区并进上一次提交，说明不变",
+      "tags": [
+        "日常提交"
+      ]
+    },
+    {
+      "id": "seed-129",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git diff`",
+      "desc": "工作区还没暂存的改动",
+      "tags": [
+        "查看"
+      ]
+    },
+    {
+      "id": "seed-130",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git diff --staged`",
+      "desc": "已暂存、即将提交的改动",
+      "tags": [
+        "查看"
+      ]
+    },
+    {
+      "id": "seed-131",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git diff main...HEAD`",
+      "desc": "当前分支从 main 分出来之后的全部改动",
+      "tags": [
+        "查看"
+      ]
+    },
+    {
+      "id": "seed-132",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git log --oneline --graph --all`",
+      "desc": "所有分支的提交历史，一行一个，画出分叉",
+      "tags": [
+        "查看"
+      ]
+    },
+    {
+      "id": "seed-133",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git log -p <文件>`",
+      "desc": "某个文件的每次修改及内容",
+      "tags": [
+        "查看"
+      ]
+    },
+    {
+      "id": "seed-134",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git log -S \"文本\"`",
+      "desc": "找加入或删除了某段文本的提交",
+      "tags": [
+        "查看"
+      ]
+    },
+    {
+      "id": "seed-135",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git show <提交>`",
+      "desc": "看某个提交改了什么（不带参数看最新一次）",
+      "tags": [
+        "查看"
+      ]
+    },
+    {
+      "id": "seed-136",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git blame <文件>`",
+      "desc": "每一行最后是谁、在哪个提交里改的",
+      "tags": [
+        "查看"
+      ]
+    },
+    {
+      "id": "seed-137",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git branch`",
+      "desc": "列出本地分支（`-a` 连远程一起，`-vv` 显示跟踪关系）",
+      "tags": [
+        "分支"
+      ]
+    },
+    {
+      "id": "seed-138",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git switch <分支>`",
+      "desc": "切换分支（旧写法 `git checkout <分支>`）",
+      "tags": [
+        "分支"
+      ]
+    },
+    {
+      "id": "seed-139",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git switch -c <新分支>`",
+      "desc": "新建分支并切过去（旧写法 `git checkout -b`）",
+      "tags": [
+        "分支"
+      ]
+    },
+    {
+      "id": "seed-140",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git switch -`",
+      "desc": "切回上一个分支",
+      "tags": [
+        "分支"
+      ]
+    },
+    {
+      "id": "seed-141",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git branch -d <分支>`",
+      "desc": "删除已合并的分支（`-D` 强制删除）",
+      "tags": [
+        "分支"
+      ]
+    },
+    {
+      "id": "seed-142",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git branch -m <新名字>`",
+      "desc": "重命名当前分支",
+      "tags": [
+        "分支"
+      ]
+    },
+    {
+      "id": "seed-143",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git merge <分支>`",
+      "desc": "把指定分支合并到当前分支",
+      "tags": [
+        "分支"
+      ]
+    },
+    {
+      "id": "seed-144",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git merge --abort`",
+      "desc": "合并冲突时放弃，回到合并前",
+      "tags": [
+        "分支"
+      ]
+    },
+    {
+      "id": "seed-145",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git rebase main`",
+      "desc": "把当前分支的提交挪到 main 最新提交之后",
+      "tags": [
+        "分支"
+      ]
+    },
+    {
+      "id": "seed-146",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git rebase --continue`",
+      "desc": "解决冲突并 `git add` 后继续变基（`--abort` 放弃）",
+      "tags": [
+        "分支"
+      ]
+    },
+    {
+      "id": "seed-147",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git rebase -i HEAD~3`",
+      "desc": "交互式整理最近 3 个提交：合并、改说明、调顺序",
+      "tags": [
+        "分支"
+      ]
+    },
+    {
+      "id": "seed-148",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git cherry-pick <提交>`",
+      "desc": "把别的分支上的某个提交复制到当前分支",
+      "tags": [
+        "分支"
+      ]
+    },
+    {
+      "id": "seed-149",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git remote -v`",
+      "desc": "列出远程仓库地址",
+      "tags": [
+        "远程同步"
+      ]
+    },
+    {
+      "id": "seed-150",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git remote add origin <url>`",
+      "desc": "添加远程仓库",
+      "tags": [
+        "远程同步"
+      ]
+    },
+    {
+      "id": "seed-151",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git fetch`",
+      "desc": "下载远程更新，但不改动本地分支（`--prune` 顺便清掉已删的远程分支）",
+      "tags": [
+        "远程同步"
+      ]
+    },
+    {
+      "id": "seed-152",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git pull`",
+      "desc": "拉取并合并当前分支的远程更新",
+      "tags": [
+        "远程同步"
+      ]
+    },
+    {
+      "id": "seed-153",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git pull --rebase`",
+      "desc": "拉取后把本地提交变基到远程之后，历史不产生合并提交",
+      "tags": [
+        "远程同步"
+      ]
+    },
+    {
+      "id": "seed-154",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git push`",
+      "desc": "推送当前分支",
+      "tags": [
+        "远程同步"
+      ]
+    },
+    {
+      "id": "seed-155",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git push -u origin <分支>`",
+      "desc": "第一次推送新分支，并设为默认跟踪",
+      "tags": [
+        "远程同步"
+      ]
+    },
+    {
+      "id": "seed-156",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git push --force-with-lease`",
+      "desc": "变基后强制推送；远程有别人的新提交时会拒绝，比 `--force` 安全",
+      "tags": [
+        "远程同步"
+      ]
+    },
+    {
+      "id": "seed-157",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git push origin --delete <分支>`",
+      "desc": "删除远程分支",
+      "tags": [
+        "远程同步"
+      ]
+    },
+    {
+      "id": "seed-158",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git restore <文件>`",
+      "desc": "丢弃工作区里还没暂存的改动（不可恢复）",
+      "tags": [
+        "撤销"
+      ]
+    },
+    {
+      "id": "seed-159",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git restore --staged <文件>`",
+      "desc": "取消暂存，改动保留在工作区",
+      "tags": [
+        "撤销"
+      ]
+    },
+    {
+      "id": "seed-160",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git restore --source=<提交> <文件>`",
+      "desc": "把文件恢复成某个提交里的样子",
+      "tags": [
+        "撤销"
+      ]
+    },
+    {
+      "id": "seed-161",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git reset --soft HEAD~1`",
+      "desc": "撤销上一次提交，改动保留在暂存区",
+      "tags": [
+        "撤销"
+      ]
+    },
+    {
+      "id": "seed-162",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git reset HEAD~1`",
+      "desc": "撤销上一次提交，改动保留在工作区（未暂存）",
+      "tags": [
+        "撤销"
+      ]
+    },
+    {
+      "id": "seed-163",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git reset --hard HEAD~1`",
+      "desc": "撤销上一次提交并丢弃其改动（危险）",
+      "tags": [
+        "撤销"
+      ]
+    },
+    {
+      "id": "seed-164",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git revert <提交>`",
+      "desc": "新建一个反向提交来抵消某个提交；已推送的提交用这个",
+      "tags": [
+        "撤销"
+      ]
+    },
+    {
+      "id": "seed-165",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git reflog`",
+      "desc": "HEAD 的移动记录；误删分支或 `reset` 错了用它找回提交",
+      "tags": [
+        "撤销"
+      ]
+    },
+    {
+      "id": "seed-166",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git clean -n`",
+      "desc": "预览会删除哪些未跟踪的文件（确认后用 `-fd` 真删）",
+      "tags": [
+        "撤销"
+      ]
+    },
+    {
+      "id": "seed-167",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git stash`",
+      "desc": "把未提交的改动临时收起来，工作区变干净（`-u` 连未跟踪文件）",
+      "tags": [
+        "暂存 stash"
+      ]
+    },
+    {
+      "id": "seed-168",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git stash pop`",
+      "desc": "取回最近一次收起的改动",
+      "tags": [
+        "暂存 stash"
+      ]
+    },
+    {
+      "id": "seed-169",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git stash list`",
+      "desc": "列出所有收起的改动",
+      "tags": [
+        "暂存 stash"
+      ]
+    },
+    {
+      "id": "seed-170",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git stash drop`",
+      "desc": "删掉最近一次收起的改动",
+      "tags": [
+        "暂存 stash"
+      ]
+    },
+    {
+      "id": "seed-171",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git tag`",
+      "desc": "列出所有标签",
+      "tags": [
+        "标签"
+      ]
+    },
+    {
+      "id": "seed-172",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git tag -a v1.0 -m \"说明\"`",
+      "desc": "在当前提交上打带说明的标签",
+      "tags": [
+        "标签"
+      ]
+    },
+    {
+      "id": "seed-173",
+      "app": "Git",
+      "kind": "command",
+      "keys": "`git push origin --tags`",
+      "desc": "推送所有标签",
+      "tags": [
+        "标签"
+      ]
     }
   ]
 }
